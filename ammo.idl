@@ -1062,6 +1062,8 @@ interface btRigidBody {
   [Const, Ref] btVector3 getTotalTorque();
   [Const, Ref] btVector3 getInvInertiaDiagLocal();
   void setInvInertiaDiagLocal([Const, Ref] btVector3 diagInvInertia);
+  void setDeactivationTime(float time);
+  float getDeactivationTime();
   void setSleepingThresholds(float linear, float angular);
   void applyTorque([Const, Ref] btVector3 torque);
   void applyForce([Const, Ref] btVector3 force, [Const, Ref] btVector3 rel_pos);
