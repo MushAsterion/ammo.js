@@ -1045,8 +1045,8 @@ interface btRigidBody {
   void setDamping(float lin_damping, float ang_damping);
   [Const] float getLinearDamping();
   [Const] float getAngularDamping();
-  float getLinearSleepingThreshold();
-  float getAngularSleepingThreshold();
+  [Const] float getLinearSleepingThreshold();
+  [Const] float getAngularSleepingThreshold();
   void applyDamping(float timeStep);
   btCollisionShape getCollisionShape();
   void setMassProps(float mass, [Const, Ref] btVector3 inertia);
@@ -1096,7 +1096,7 @@ interface btRigidBody {
   boolean wantsSleeping();
   [Const] btBroadphaseProxy getBroadphaseProxy(); // const ? non-const
   void setNewBroadphaseProxy(btBroadphaseProxy broadphaseProxy);
-  btMotionState getMotionState(); // const ? non-const
+  [Const] btMotionState getMotionState(); // const ? non-const
   void setMotionState(btMotionState motionState);
   void setAngularFactor([Const, Ref] btVector3 angFac);
   // void setAngularFactor(float angFac);
