@@ -33,6 +33,9 @@ set(TOTAL_MEMORY 67108864 CACHE STRING "Total Memory")
 # Enable for resizable heap, with some amount of slowness
 set(ALLOW_MEMORY_GROWTH 0 CACHE STRING "Allow Memory Growth")
 
+# Build for all environments by default
+set(ENVIRONMENT "web,webview,worker,node" CACHE STRING "Environment")
+
 set(EMCC_ARGS
   --extern-pre-js ${AMMO_FRONT_MATTER_FILE}
   --llvm-lto 1
@@ -48,7 +51,8 @@ set(EMCC_ARGS
   -s MODULARIZE=1
   -s NO_EXIT_RUNTIME=1
   -s NO_FILESYSTEM=1
-  -s TOTAL_MEMORY=${TOTAL_MEMORY})
+  -s TOTAL_MEMORY=${TOTAL_MEMORY}
+  -s ENVIRONMENT=${ENVIRONMENT})
 
 if(${CLOSURE})
   # Ignore closure errors about the bullet Node class
