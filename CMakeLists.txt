@@ -36,6 +36,9 @@ set(ALLOW_MEMORY_GROWTH 0 CACHE STRING "Allow Memory Growth")
 # Build for all environments by default
 set(ENVIRONMENT "web,webview,worker,node" CACHE STRING "Environment")
 
+# Disable exception catching by default
+set(DISABLE_EXCEPTION_CATCHING 1 CACHE STRING "Disable Exception Catching")
+
 set(EMCC_ARGS
   --extern-pre-js ${AMMO_FRONT_MATTER_FILE}
   --llvm-lto 1
@@ -52,7 +55,8 @@ set(EMCC_ARGS
   -s NO_EXIT_RUNTIME=1
   -s NO_FILESYSTEM=1
   -s TOTAL_MEMORY=${TOTAL_MEMORY}
-  -s ENVIRONMENT=${ENVIRONMENT})
+  -s ENVIRONMENT=${ENVIRONMENT}
+  -s DISABLE_EXCEPTION_CATCHING=${DISABLE_EXCEPTION_CATCHING})
 
 if(${CLOSURE})
   # Ignore closure errors about the bullet Node class
