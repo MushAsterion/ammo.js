@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  builder:
-    build: .
-    volumes:
-      - .:/code
-    command: bash -c "rm -f builds/ammo.* && cmake -B builds -DCLOSURE=1 && cmake --build builds"
+    builder:
+        build: .
+        volumes:
+            - .:/code
+        command: bash -c "rm -f builds/ammo.* && cmake -B builds -DCLOSURE=1 -DENVIRONMENT="node" -DGL_ENABLE_GET_PROC_ADDRESS=0 && cmake --build builds"
