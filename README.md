@@ -128,6 +128,7 @@ $ cmake -B builds -DTOTAL_MEMORY=268435456                 # allocate a 256MB he
 $ cmake -B builds -DALLOW_MEMORY_GROWTH=1                  # enable a resizable heap
 $ cmake -B builds -DENVIRONMENT="web,webview,worker,node"  # build for all environment
 $ cmake -B builds -DDISABLE_EXCEPTION_CATCHING=0           # enable exception catching
+$ cmake -B builds -DGL_ENABLE_GET_PROC_ADDRESS=0           # disable processus address fetching
 ```
 
 On windows, you can build using cmake's

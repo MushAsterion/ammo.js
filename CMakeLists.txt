@@ -39,6 +39,9 @@ set(ENVIRONMENT "web,webview,worker,node" CACHE STRING "Environment")
 # Disable exception catching by default
 set(DISABLE_EXCEPTION_CATCHING 1 CACHE STRING "Disable Exception Catching")
 
+# GL Enable Processor Address by default
+set(GL_ENABLE_GET_PROC_ADDRESS 1 CACHE STRING "GL Enable Get Proc Address")
+
 set(EMCC_ARGS
   --extern-pre-js ${AMMO_FRONT_MATTER_FILE}
   --llvm-lto 1
@@ -56,7 +59,8 @@ set(EMCC_ARGS
   -s NO_FILESYSTEM=1
   -s TOTAL_MEMORY=${TOTAL_MEMORY}
   -s ENVIRONMENT=${ENVIRONMENT}
-  -s DISABLE_EXCEPTION_CATCHING=${DISABLE_EXCEPTION_CATCHING})
+  -s DISABLE_EXCEPTION_CATCHING=${DISABLE_EXCEPTION_CATCHING}
+  -s GL_ENABLE_GET_PROC_ADDRESS=${GL_ENABLE_GET_PROC_ADDRESS})
 
 if(${CLOSURE})
   # Ignore closure errors about the bullet Node class
